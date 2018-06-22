@@ -1,0 +1,1 @@
+exports.myTest = 'hello world';

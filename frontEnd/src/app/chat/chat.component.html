@@ -1,0 +1,39 @@
+<!-- <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="name" name="userName" [(ngModel)]="userName" class="form-control" id="name">
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <input type="message" name="message" class="form-control" [(ngModel)]="message"  id="message">
+      </div>
+
+      <button type="submit" (click)="submit()" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div> -->
+
+
+<mat-card>
+  <mat-card-header>Online Users</mat-card-header>
+  <mat-card-content>
+    <mat-list *ngIf="onlineUsers">
+      <!-- <mat-list-item *ngFor="let onlineUser of onlineUsers" (click)="selectUser(onlineUser)"> {{onlineUser.firstName}} </mat-list-item> -->
+      <mat-list-item *ngFor="let onlineUser of onlineUsers | excludeCurrentUser" (click)="selectUser(onlineUser)"> {{onlineUser.firstName}} </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+
+<mat-tab-group *ngIf="selectedUsers">
+  <mat-tab *ngFor="let selectedUser of selectedUsers" label="{{selectedUser.firstName}}">
+    <!-- <ng-template matTabContent> -->
+      <app-message-content [to]="selectedUser" #messageTabs></app-message-content>
+    <!-- </ng-template> -->
+  </mat-tab>
+</mat-tab-group>
+<!-- <app-message-content [messages]="messages"></app-message-content> -->
+
+
+

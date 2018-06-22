@@ -1,0 +1,30 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Messages</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+
+    <mat-card class="message-list">
+      <mat-card-content>
+        <mat-list *ngIf="messages">
+          <mat-list-item *ngFor="let message of messages"> {{message.name}}:{{message.message}} </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <mat-card>
+      <mat-card-content>
+        <mat-input-container>
+          <textarea matInput [(ngModel)]="message" placeholder="message"></textarea>
+        </mat-input-container>
+
+        <mat-card-actions>
+          <button (click)="submit()" [disabled]="to ? null: true" mat-button>Send</button>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,7 @@
+input {
+  width: 350px;
+}
+
+.error {
+  background-color: #fff0f0;
+}
